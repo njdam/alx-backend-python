@@ -7,16 +7,12 @@ import asyncio
 
 async def async_generator():
     """
-    A coroutine called async_generator that takes no arguments
-    that will loop 10 times, each time asynchronously wait 1 second
-    then yield a random number between 0 and 10.
+    Asynchronous generator coroutine that yields a random number between 0
+    and 10 after waiting 1 second asynchronously, repeated 10 times.
 
-    Args:
-        None
-
-    Returns:
-        List[float]: List of float of delayed time!
+    Yields:
+        float: Random number between 0 and 10.
     """
-    for i in range(10):
+    for _ in range(10):
+        await asyncio.sleep(1)  # Asynchronously wait for 1 second
         yield random.uniform(0, 10)
-        await asyncio.sleep(1)
